@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperDto;
+use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperRequestDto;
 use Architecture\Api\Contracts\ServiceInterfaces\DeveloperServiceInterface;
 use Architecture\Domain\Entities\Enums\Graduate;
 use Illuminate\Http\JsonResponse;
@@ -21,12 +21,12 @@ class DeveloperController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function AddNewDeveloper(Request $request) : JsonResponse
+    public function addNewDeveloper(Request $request) : JsonResponse
     {
         $name = $request->get('name');
         $lastname = $request->get('lastName');
         $graduate = Graduate::tryFrom((int)$request->get('graduate'));
-        $newDeveloperDto = new NewDeveloperDto($name,$lastname,$graduate);
+        $newDeveloperDto = new NewDeveloperRequestDto($name,$lastname,$graduate);
         return response()->json($this->developerService->AddNewDeveloper($newDeveloperDto));
     }
 }

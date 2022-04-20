@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('createDeveloper',[App\Http\Controllers\Api\DeveloperController::class,'AddNewDeveloper'])->name('developer.new');
+Route::get('createDeveloper',[App\Http\Controllers\Api\DeveloperController::class,'addNewDeveloper'])->name('developer.new');

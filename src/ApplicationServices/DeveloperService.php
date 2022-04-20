@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace Architecture\ApplicationServices;
-use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperDto;
+use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperRequestDto;
 use Architecture\Api\Contracts\Dtos\OutputDtos\NewDeveloperResponseDto;
 use Architecture\Api\Contracts\ServiceInterfaces\DeveloperServiceInterface;
 use Architecture\Api\Contracts\Dtos\Mappers\DeveloperMapper;
@@ -16,7 +16,7 @@ class DeveloperService implements DeveloperServiceInterface
         public SendMailServiceInterface $sendMailService
     ) {}
 
-    public function AddNewDeveloper(NewDeveloperDto $newDeveloperDto): NewDeveloperResponseDto
+    public function addNewDeveloper(NewDeveloperRequestDto $newDeveloperDto): NewDeveloperResponseDto
     {
         $developer = DeveloperMapper::toDeveloperDTO($newDeveloperDto);
         $newDeveloper = $this->developerRepository->create($developer);

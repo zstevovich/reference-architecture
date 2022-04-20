@@ -2,10 +2,10 @@
 
 namespace Architecture\Api\Contracts\ServiceInterfaces;
 
-use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperDto;
+use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperRequestDto;
 use Architecture\Api\Contracts\Dtos\OutputDtos\NewDeveloperResponseDto;
 
 interface DeveloperServiceInterface
 {
-    public function AddNewDeveloper(NewDeveloperDto $newDeveloperDto) : NewDeveloperResponseDto;
+    public function addNewDeveloper(NewDeveloperRequestDto $newDeveloperDto) : NewDeveloperResponseDto;
 }
