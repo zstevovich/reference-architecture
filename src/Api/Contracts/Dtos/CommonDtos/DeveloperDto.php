@@ -3,8 +3,6 @@
 namespace Architecture\Api\Contracts\Dtos\CommonDtos;
 
 use Architecture\Domain\Entities\Enums\Graduate;
-use Ramsey\Uuid\Guid\Guid;
-use Ramsey\Uuid\UuidInterface;
 
 class DeveloperDto
 {
