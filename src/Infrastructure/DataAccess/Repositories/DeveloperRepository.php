@@ -7,6 +7,7 @@ use Architecture\Domain\Repositories\DeveloperRepositoryInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Exception;
 
 class DeveloperRepository extends EntityRepository implements DeveloperRepositoryInterface
 {
@@ -15,10 +16,14 @@ class DeveloperRepository extends EntityRepository implements DeveloperRepositor
         $metadata = new ClassMetadata('Architecture\Domain\Entities\Developer');
         parent::__construct($entityManager, $metadata);
     }
+
+    /**
+     * @throws Exception
+     */
     public function create(Developer $developer): Developer
     {
         $this->getEntityManager()->getUnitOfWork()->persist($developer);
-        $this->getEntityManager()->flush();
+        $this->getEntityManager()->getUnitOfWork()->commit();
         return $developer;
     }
 }
