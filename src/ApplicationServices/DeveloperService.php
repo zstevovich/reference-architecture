@@ -20,7 +20,7 @@ class DeveloperService implements DeveloperServiceInterface
     {
         $developer = DeveloperMapper::toEntity($newDeveloperDto);
         $newDeveloper = $this->developerRepository->create($developer);
-        $newDeveloperResponseDto = new NewDeveloperResponseDto($newDeveloper->getId()->toString(),$newDeveloper->getName(),$newDeveloper->getLastName(),$newDeveloper->getGraduate());
+        $newDeveloperResponseDto = new NewDeveloperResponseDto($newDeveloper->getId(),$newDeveloper->getName(),$newDeveloper->getLastName(),$newDeveloper->getGraduate());
         $this->sendMailService->sendEmail("example@example.com","example","example text");
         return $newDeveloperResponseDto;
 
