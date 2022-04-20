@@ -27,6 +27,6 @@ class DeveloperController extends Controller
         $lastname = $request->get('lastName');
         $graduate = Graduate::tryFrom((int)$request->get('graduate'));
         $newDeveloperDto = new NewDeveloperRequestDto($name,$lastname,$graduate);
-        return response()->json($this->developerService->AddNewDeveloper($newDeveloperDto));
+        return response()->json($this->developerService->addNewDeveloper($newDeveloperDto));
     }
 }
