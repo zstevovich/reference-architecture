@@ -24,7 +24,7 @@ return [
     | --> Warning: Proxy auto generation should only be enabled in dev!
     |
     */
-    'managers'                   => [
+    'managers' => [
         'default' => [
             'dev'           => env('APP_DEBUG', true),
             'meta'          => env('DOCTRINE_METADATA', 'attributes'),
@@ -93,7 +93,7 @@ return [
     | laravel-doctrine/extensions in your composer.json
     |
     */
-    'extensions'                 => [
+    'extensions' => [
         //LaravelDoctrine\ORM\Extensions\TablePrefix\TablePrefixExtension::class,
         //LaravelDoctrine\Extensions\Timestamps\TimestampableExtension::class,
         //LaravelDoctrine\Extensions\SoftDeletes\SoftDeleteableExtension::class,
@@ -121,25 +121,25 @@ return [
     | DQL custom datetime functions
     |--------------------------------------------------------------------------
     */
-    'custom_datetime_functions'  => [],
+    'custom_datetime_functions' => [],
     /*
     |--------------------------------------------------------------------------
     | DQL custom numeric functions
     |--------------------------------------------------------------------------
     */
-    'custom_numeric_functions'   => [],
+    'custom_numeric_functions' => [],
     /*
     |--------------------------------------------------------------------------
     | DQL custom string functions
     |--------------------------------------------------------------------------
     */
-    'custom_string_functions'    => [],
+    'custom_string_functions' => [],
     /*
     |--------------------------------------------------------------------------
     | Register custom hydrators
     |--------------------------------------------------------------------------
     */
-    'custom_hydration_modes'     => [
+    'custom_hydration_modes' => [
         // e.g. 'hydrationModeName' => MyHydrator::class,
     ],
     /*
@@ -154,7 +154,7 @@ return [
     | - LaravelDoctrine\ORM\Loggers\FileLogger
     |--------------------------------------------------------------------------
     */
-    'logger'                     => env('DOCTRINE_LOGGER', false),
+    'logger' => env('DOCTRINE_LOGGER', false),
     /*
     |--------------------------------------------------------------------------
     | Cache
@@ -193,7 +193,7 @@ return [
     | laravel-doctrine/extensions in your composer.json
     |
     */
-    'gedmo'                      => [
+    'gedmo' => [
         'all_mappings' => false
     ],
     /*
@@ -214,7 +214,7 @@ return [
      |  Doctrine notifications channel
      |
      */
-    'notifications'              => [
+    'notifications' => [
         'channel' => 'database'
     ]
 ];
