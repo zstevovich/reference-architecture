@@ -5,13 +5,12 @@ namespace Architecture\Domain\Entities;
 use Architecture\Domain\Entities\Enums\Graduate;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Column;
 use Ramsey\Uuid\Doctrine\UuidGenerator;
 use Ramsey\Uuid\Lazy\LazyUuidFromString;
 
 
-#[Entity(repositoryClass: 'Architecture\Infrastructure\DataAccess\Repositories\DeveloperRepository', readOnly: false)]
+#[ORM\Entity(repositoryClass: 'Architecture\Infrastructure\DataAccess\Repositories\DeveloperRepository', readOnly: false)]
 class Developer
 {
     #[ORM\Column(type: Types::GUID)]
