@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 
 class DeveloperMapper
 {
-    public static function toDeveloperDTO(DeveloperDto $developerDto): Developer
+    public static function toEntity(DeveloperDto $developerDto): Developer
     {
-        return new Developer(Str::uuid(), $developerDto->getName(), $developerDto->getLastName(), $developerDto->getGraduate());
+        return new Developer($developerDto->name, $developerDto->lastName, $developerDto->getGraduate());
     }
 }

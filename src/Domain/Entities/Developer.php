@@ -3,61 +3,55 @@
 namespace Architecture\Domain\Entities;
 
 use Architecture\Domain\Entities\Enums\Graduate;
-use Ramsey\Uuid\UuidInterface;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\Column;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Ramsey\Uuid\Lazy\LazyUuidFromString;
 
+
+#[Entity(repositoryClass: 'Architecture\Infrastructure\DataAccess\Repositories\DeveloperRepository', readOnly: false)]
 class Developer
 {
-    private UuidInterface $id;
+    #[ORM\Column(type: Types::GUID)]
+    #[ORM\Id, ORM\GeneratedValue(strategy: 'CUSTOM'), ORM\CustomIdGenerator(class: UuidGenerator::class)]
+    private ?LazyUuidFromString $id;
+
+    #[ORM\Column(type: Types::STRING)]
     private string $name;
+
+    #[ORM\Column(type: Types::STRING)]
     private string $lastName;
+
+    #[Column(type: 'string', enumType: Graduate::class)]
     private Graduate $graduate;
 
-    /**
-     * @param UuidInterface $id
-     * @param string $name
-     * @param string $lastName
-     * @param Graduate $graduate
-     */
-    public function __construct(UuidInterface $id, string $name, string $lastName, Graduate $graduate)
+    public function __construct(string $name, string $lastName, Graduate $graduate)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->lastName = $lastName;
         $this->graduate = $graduate;
+        $this->id = null;
     }
 
-    /**
-     * @return UuidInterface
-     */
-    public function getId(): UuidInterface
+    public function getId(): LazyUuidFromString
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
-    /**
-     * @return Graduate
-     */
     public function getGraduate(): Graduate
     {
         return $this->graduate;
     }
-
-
-
 }

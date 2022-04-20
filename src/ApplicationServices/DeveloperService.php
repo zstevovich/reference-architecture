@@ -18,9 +18,9 @@ class DeveloperService implements DeveloperServiceInterface
 
     public function addNewDeveloper(NewDeveloperRequestDto $newDeveloperDto): NewDeveloperResponseDto
     {
-        $developer = DeveloperMapper::toDeveloperDTO($newDeveloperDto);
+        $developer = DeveloperMapper::toEntity($newDeveloperDto);
         $newDeveloper = $this->developerRepository->create($developer);
-        $newDeveloperResponseDto = new NewDeveloperResponseDto($newDeveloper->getName(),$newDeveloper->getLastName(),$newDeveloper->getGraduate());
+        $newDeveloperResponseDto = new NewDeveloperResponseDto($newDeveloper->getId()->toString(),$newDeveloper->getName(),$newDeveloper->getLastName(),$newDeveloper->getGraduate());
         $this->sendMailService->sendEmail("example@example.com","example","example text");
         return $newDeveloperResponseDto;
 

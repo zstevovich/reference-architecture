@@ -10,6 +10,6 @@ final class NewDeveloperRequestDto extends DeveloperDto
 {
     #[Pure] public function __construct(string $name, string $lastName, Graduate $graduate)
     {
-        parent::__construct($name, $lastName, $graduate);
+        parent::__construct(null, $name, $lastName, $graduate);
     }
 }
