@@ -2,9 +2,9 @@
 
 namespace Architecture\Domain\Repositories;
 
-use Architecture\Domain\Entities\Developer;
+use Architecture\BuildingBlocks\RepositoryInterface;
 
-interface DeveloperRepositoryInterface
+interface DeveloperRepositoryInterface extends RepositoryInterface
 {
-    public function create(Developer $developer): Developer;
+
 }

@@ -6,17 +6,10 @@ use Architecture\Domain\Entities\Enums\Graduate;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Column;
-use Ramsey\Uuid\Doctrine\UuidGenerator;
-use Ramsey\Uuid\Lazy\LazyUuidFromString;
-
 
 #[ORM\Entity(repositoryClass: 'Architecture\Infrastructure\DataAccess\Repositories\DeveloperRepository', readOnly: false)]
-class Developer
+class Developer extends BaseEntity
 {
-    #[ORM\Column(type: Types::GUID)]
-    #[ORM\Id, ORM\GeneratedValue(strategy: 'CUSTOM'), ORM\CustomIdGenerator(class: UuidGenerator::class)]
-    private ?LazyUuidFromString $id;
-
     #[ORM\Column(type: Types::STRING)]
     private string $name;
 
@@ -31,12 +24,6 @@ class Developer
         $this->name = $name;
         $this->lastName = $lastName;
         $this->graduate = $graduate;
-        $this->id = null;
-    }
-
-    public function getId(): ?string
-    {
-        return $this->id?->toString();
     }
 
     public function getName(): string
