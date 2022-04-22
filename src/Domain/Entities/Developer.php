@@ -16,7 +16,7 @@ class Developer extends BaseEntity
     #[ORM\Column(type: Types::STRING)]
     private string $lastName;
 
-    #[Column(type: 'integer', enumType: Graduate::class)]
+    #[Column(type: 'integer', enumType: 'Architecture\Domain\Entities\Enums\Graduate')]
     private Graduate $graduate;
 
     public function __construct(?string $id, string $name, string $lastName, Graduate $graduate)
