@@ -3,7 +3,6 @@
 namespace Architecture\ApplicationServices;
 use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperRequestDto;
 use Architecture\Api\Contracts\Dtos\OutputDtos\DeveloperResponseDto;
-use Architecture\Api\Contracts\Dtos\OutputDtos\NewDeveloperResponseDto;
 use Architecture\Api\Contracts\ServiceInterfaces\DeveloperServiceInterface;
 use Architecture\Api\Contracts\Dtos\Mappers\DeveloperMapper;
 use Architecture\BuildingBlocks\UnitOfWorkRepositoryInterface;
