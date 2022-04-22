@@ -55,4 +55,9 @@ class BaseRepository extends EntityRepository implements RepositoryInterface
         }
         throw new EntityNotFoundException("Entity not found");
     }
+
+    public function getAll(): array
+    {
+        return $this->findAll();
+    }
 }

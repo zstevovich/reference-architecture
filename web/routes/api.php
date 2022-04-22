@@ -17,5 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('createDeveloper',[App\Http\Controllers\Api\DeveloperController::class,'addNewDeveloper'])->name('developer.new');
-Route::get('getDeveloper/{developerId}',[App\Http\Controllers\Api\DeveloperController::class,'getDeveloper'])->name('developer.get');
+Route::prefix('developer')->group(function () {
+    Route::post('create', [App\Http\Controllers\Api\DeveloperController::class, 'addNewDeveloper'])->name('developer.create');
+    Route::put('update', [App\Http\Controllers\Api\DeveloperController::class, 'updateDeveloper'])->name('developer.update');
+    Route::get('get/{developerId}', [App\Http\Controllers\Api\DeveloperController::class, 'getDeveloper'])->name('developer.get');
+    Route::get('all', [App\Http\Controllers\Api\DeveloperController::class, 'getAll'])->name('developer.all');
+    Route::delete('delete/{developerId}', [App\Http\Controllers\Api\DeveloperController::class, 'deleteDeveloper'])->name('developer.delete');
+});

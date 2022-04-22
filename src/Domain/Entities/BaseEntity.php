@@ -16,12 +16,20 @@ abstract class BaseEntity
 
     public function __construct(?string $id)
     {
-        $this->id = $id ? new LazyUuidFromString("7b71ba24-9772-478c-90a8-37a86c1e9cad") : null;
+        $this->id = $id ? new LazyUuidFromString($id) : null;
     }
 
 
     public function getId(): string|LazyUuidFromString|null
     {
         return $this->id;
+    }
+
+    /**
+     * @param LazyUuidFromString|string|null $id
+     */
+    public function setId(string|LazyUuidFromString|null $id): void
+    {
+        $this->id = $id;
     }
 }

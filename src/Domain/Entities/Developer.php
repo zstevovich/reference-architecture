@@ -19,7 +19,7 @@ class Developer extends BaseEntity
     #[Column(type: 'integer', enumType: Graduate::class)]
     private Graduate $graduate;
 
-    public function __construct(string $name, string $lastName, Graduate $graduate, ?string $id = null)
+    public function __construct(?string $id, string $name, string $lastName, Graduate $graduate)
     {
         parent::__construct($id);
         $this->name = $name;
