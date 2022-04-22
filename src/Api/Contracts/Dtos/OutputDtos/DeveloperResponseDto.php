@@ -11,7 +11,7 @@ final class DeveloperResponseDto
     public ?string $graduateName;
     public ?DeveloperDto $developerDto;
     public array $developers = [];
-    public function __construct(DeveloperDto $developerDto = null, ?string $error = null,string $message = "Information About developer!")
+    public function __construct(DeveloperDto $developerDto = null, ?string $error = null,string $message = "Information About developers!")
     {
         $this->developerDto = $developerDto;
         $this->message = $message;
