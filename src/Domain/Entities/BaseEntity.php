@@ -16,7 +16,7 @@ abstract class BaseEntity
 
     public function __construct(?string $id)
     {
-        $this->id = $id ? new LazyUuidFromString($id) : null;
+        $this->id = UuidFromString($id);
     }
 
 

@@ -4,8 +4,9 @@ use Ramsey\Uuid\Lazy\LazyUuidFromString;
 
 if (!function_exists('UuidFromString')) {
 
-    function UuidFromString(string $uuid): LazyUuidFromString
+    function UuidFromString(mixed $uuid): ?LazyUuidFromString
     {
-        return new LazyUuidFromString($uuid);
+        if ($uuid instanceof LazyUuidFromString) return $uuid;
+        return is_string($uuid) ? new LazyUuidFromString($uuid) : null;
     }
 }
