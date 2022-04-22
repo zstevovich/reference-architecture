@@ -85,7 +85,8 @@ class DeveloperService implements DeveloperServiceInterface
     public function getAll(): DeveloperResponseDto
     {
         $developers = DeveloperMapper::toDeveloperDtoStream($this->unitOfWork->developerRepository()->getAll());
-        $response = new DeveloperResponseDto();
+        if (empty($developers)) $this->error = "Not found any developer in the system!";
+        $response = new DeveloperResponseDto(null,$this->error);
         $response->setDevelopers($developers);
         return $response;
     }
