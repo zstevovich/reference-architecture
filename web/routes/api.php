@@ -18,3 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('createDeveloper',[App\Http\Controllers\Api\DeveloperController::class,'addNewDeveloper'])->name('developer.new');
+Route::get('getDeveloper/{developerId}',[App\Http\Controllers\Api\DeveloperController::class,'getDeveloper'])->name('developer.get');
