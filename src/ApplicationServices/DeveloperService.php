@@ -36,4 +36,24 @@ class DeveloperService implements DeveloperServiceInterface
         return $newDeveloperResponseDto;
 
     }
+
+    public function updateDeveloper(NewDeveloperRequestDto $newDeveloperDto): NewDeveloperResponseDto
+    {
+        $developer = DeveloperMapper::toEntity($newDeveloperDto);
+        $this->unitOfWork->beginTransaction();
+        try {
+            $this->unitOfWork->developerRepository()->update($developer);
+            $this->unitOfWork->saveChanges();
+            $this->unitOfWork->commitTransaction();
+        }catch (Exception $e){
+            $this->unitOfWork->rollbackTransaction();
+            $this->error = $e->getMessage();
+        }
+        $newDeveloperResponseDto = new NewDeveloperResponseDto(
+            $developer->getId(),$developer->getName(),$developer->getLastName(),$developer->getGraduate(), $this->error,
+            "Developer has been updated!"
+        );
+        $this->sendMailService->sendEmail("example@example.com","example","example text");
+        return $newDeveloperResponseDto;
+    }
 }

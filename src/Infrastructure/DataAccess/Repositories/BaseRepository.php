@@ -50,7 +50,7 @@ class BaseRepository extends EntityRepository implements RepositoryInterface
     public function getById(int $id): object
     {
         $entity = $this->find($id);
-        if ($entity instanceof Entity) {
+        if ($entity) {
             return $entity;
         }
         throw new EntityNotFoundException("Entity not found");

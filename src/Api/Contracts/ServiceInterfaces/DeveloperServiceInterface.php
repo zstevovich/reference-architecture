@@ -8,4 +8,5 @@ use Architecture\Api\Contracts\Dtos\OutputDtos\NewDeveloperResponseDto;
 interface DeveloperServiceInterface
 {
     public function addNewDeveloper(NewDeveloperRequestDto $newDeveloperDto) : NewDeveloperResponseDto;
+    public function updateDeveloper(NewDeveloperRequestDto $newDeveloperDto) : NewDeveloperResponseDto;
 }
