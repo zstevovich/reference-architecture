@@ -12,3 +12,12 @@
 10. Slika ispod je swagger page odakle mozete da izvrsavate crud
     
 ![ScreenShot](swagger_screen.png)
+
+1. Api controller - App\Http\Controllers\Api\DeveloperController
+2. Api rute - web/routes/api.php
+3. Registrovani interfejsi - App\Providers\AppServiceProvider
+4. Ugovori izmedju framwrork-a i poslovne logike - Architecture\Api\Contracts
+5. Implementacija applikativnih servisa - Architecture\ApplicationServices\DeveloperService
+6. Domen (entiteti, interfejsi repozitorijuma i infra servisa) - Architecture\Domain
+7. Infrastruktura(infra servisi, repozitorijumi) - Architecture\Infrastructure
+
