@@ -29,7 +29,10 @@
             "Architecture\\": "../src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "../src/Domain/Helper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

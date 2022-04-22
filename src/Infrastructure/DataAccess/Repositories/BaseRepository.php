@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use PDOException;
+use Ramsey\Uuid\Lazy\LazyUuidFromString;
 
 class BaseRepository extends EntityRepository implements RepositoryInterface
 {
@@ -46,7 +47,7 @@ class BaseRepository extends EntityRepository implements RepositoryInterface
     /**
      * @throws EntityNotFoundException
      */
-    public function getById(int $id): object
+    public function getById(LazyUuidFromString $id): object
     {
         $entity = $this->find($id);
         if ($entity) {

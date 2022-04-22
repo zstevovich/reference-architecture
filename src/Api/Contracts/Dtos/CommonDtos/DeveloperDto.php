@@ -11,7 +11,7 @@ class DeveloperDto
     public string $lastName;
     protected Graduate $graduate;
 
-    protected function __construct(?string $id, string $name, string $lastName, Graduate $graduate)
+    public function __construct(?string $id, string $name, string $lastName, Graduate $graduate)
     {
         $this->name = $name;
         $this->lastName = $lastName;

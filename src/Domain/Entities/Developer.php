@@ -16,11 +16,12 @@ class Developer extends BaseEntity
     #[ORM\Column(type: Types::STRING)]
     private string $lastName;
 
-    #[Column(type: 'string', enumType: Graduate::class)]
+    #[Column(type: 'integer', enumType: Graduate::class)]
     private Graduate $graduate;
 
-    public function __construct(string $name, string $lastName, Graduate $graduate)
+    public function __construct(string $name, string $lastName, Graduate $graduate, ?string $id = null)
     {
+        parent::__construct($id);
         $this->name = $name;
         $this->lastName = $lastName;
         $this->graduate = $graduate;

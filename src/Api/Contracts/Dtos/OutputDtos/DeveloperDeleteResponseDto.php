@@ -5,7 +5,7 @@ namespace Architecture\Api\Contracts\Dtos\OutputDtos;
 use Architecture\Api\Contracts\Dtos\CommonDtos\DeveloperDto;
 use Architecture\Domain\Entities\Enums\Graduate;
 
-class DeveloperDeleteResponseDto extends DeveloperDto
+final class DeveloperDeleteResponseDto extends DeveloperDto
 {
     public ?string $error = null;
     public string $message;

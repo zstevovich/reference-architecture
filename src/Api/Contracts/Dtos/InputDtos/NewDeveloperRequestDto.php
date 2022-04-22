@@ -8,7 +8,7 @@ use Ramsey\Uuid\Lazy\LazyUuidFromString;
 
 final class NewDeveloperRequestDto extends DeveloperDto
 {
-    public function __construct(string $name, string $lastName, Graduate $graduate, ?LazyUuidFromString $id = null)
+    public function __construct(string $name, string $lastName, Graduate $graduate, ?string $id = null)
     {
         parent::__construct($id, $name, $lastName, $graduate);
     }

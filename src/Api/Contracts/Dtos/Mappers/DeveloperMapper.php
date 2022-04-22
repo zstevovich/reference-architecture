@@ -9,6 +9,13 @@ class DeveloperMapper
 {
     public static function toEntity(DeveloperDto $developerDto): Developer
     {
-        return new Developer($developerDto->name, $developerDto->lastName, $developerDto->getGraduate());
+        return new Developer($developerDto->name, $developerDto->lastName, $developerDto->getGraduate(),$developerDto->id);
+    }
+
+    public static function toDto(Developer $developer): DeveloperDto
+    {
+        return new DeveloperDto(
+            $developer->getId(), $developer->getName(), $developer->getLastName(),$developer->getGraduate()
+        );
     }
 }

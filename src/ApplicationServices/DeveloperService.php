@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace Architecture\ApplicationServices;
+use Architecture\Api\Contracts\Dtos\CommonDtos\DeveloperDto;
 use Architecture\Api\Contracts\Dtos\InputDtos\NewDeveloperRequestDto;
 use Architecture\Api\Contracts\Dtos\OutputDtos\NewDeveloperResponseDto;
 use Architecture\Api\Contracts\ServiceInterfaces\DeveloperServiceInterface;
@@ -56,4 +57,13 @@ class DeveloperService implements DeveloperServiceInterface
         $this->sendMailService->sendEmail("example@example.com","example","example text");
         return $newDeveloperResponseDto;
     }
+
+    public function getDeveloper(string $developerId): DeveloperDto
+    {
+        $id = UuidFromString($developerId);
+        $developer = $this->unitOfWork->developerRepository()->getById($id);
+        return DeveloperMapper::toDto($developer);
+
+    }
+
 }
