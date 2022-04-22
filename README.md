@@ -19,5 +19,5 @@
 4. Ugovori izmedju framwrork-a i poslovne logike - Architecture\Api\Contracts
 5. Implementacija applikativnih servisa - Architecture\ApplicationServices\DeveloperService
 6. Domen (entiteti, interfejsi repozitorijuma i infra servisa) - Architecture\Domain
-7. Infrastruktura(infra servisi, repozitorijumi) - Architecture\Infrastructure
+7. Infrastruktura(implementacije infra servisa, repozitorijuma) - Architecture\Infrastructure
 
