@@ -10,6 +10,7 @@ final class DeveloperResponseDto
     public string $message;
     public ?string $graduateName;
     public ?DeveloperDto $developerDto;
+    public array $developers = [];
     public function __construct(DeveloperDto $developerDto = null, ?string $error = null,string $message = "Information About developer!")
     {
         $this->developerDto = $developerDto;
@@ -17,4 +18,13 @@ final class DeveloperResponseDto
         $this->graduateName = $developerDto?->graduate->name;
         $this->error = $error;
     }
+
+    /**
+     * @param array $developers
+     */
+    public function setDevelopers(array $developers): void
+    {
+        $this->developers = $developers;
+    }
+
 }

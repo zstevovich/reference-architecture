@@ -82,9 +82,12 @@ class DeveloperService implements DeveloperServiceInterface
         }
     }
 
-    public function getAll(): array
+    public function getAll(): DeveloperResponseDto
     {
-        return DeveloperMapper::toDeveloperDtoStream($this->unitOfWork->developerRepository()->getAll());
+        $developers = DeveloperMapper::toDeveloperDtoStream($this->unitOfWork->developerRepository()->getAll());
+        $response = new DeveloperResponseDto();
+        $response->setDevelopers($developers);
+        return $response;
     }
 
 }
