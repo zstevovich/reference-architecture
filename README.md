@@ -10,4 +10,5 @@
 8. php artisan l5-swagger:generate -> generise open.api fajl
 9. http://127.0.0.1:8000/api/documentation -> url do swagger page-a
 10. Slika ispod je swagger page odakle mozete da izvrsavate crud
-    ![ScreenShot](swagger_screen.png)
+    
+![ScreenShot](swagger_screen.png)
