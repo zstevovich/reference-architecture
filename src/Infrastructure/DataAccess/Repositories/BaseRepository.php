@@ -29,7 +29,7 @@ class BaseRepository extends EntityRepository implements RepositoryInterface
      */
     public function update(object $entity): object
     {
-        $this->getById($entity->repositoryClass->getId());
+        $this->getById($entity->getId());
         $this->getEntityManager()->persist($entity);
         return $entity;
     }
