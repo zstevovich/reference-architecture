@@ -4,7 +4,6 @@ namespace Architecture\Api\Contracts\Dtos\InputDtos;
 
 use Architecture\Api\Contracts\Dtos\CommonDtos\DeveloperDto;
 use Architecture\Domain\Entities\Enums\Graduate;
-use Ramsey\Uuid\Lazy\LazyUuidFromString;
 
 final class NewDeveloperRequestDto extends DeveloperDto
 {

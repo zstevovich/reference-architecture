@@ -6,5 +6,5 @@ use Architecture\BuildingBlocks\RepositoryInterface;
 
 interface DeveloperRepositoryInterface extends RepositoryInterface
 {
-
+    public function findByName(string $name) : array;
 }

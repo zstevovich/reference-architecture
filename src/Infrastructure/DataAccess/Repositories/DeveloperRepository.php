@@ -14,4 +14,10 @@ class DeveloperRepository extends BaseRepository implements DeveloperRepositoryI
         $entity = new ClassMetadata("Architecture\Domain\Entities\Developer");
         parent::__construct($entityManager,$entity);
     }
+
+    public function findByName(string $name): array
+    {
+        return $this->findBy(['name' => $name]);
+    }
+
 }

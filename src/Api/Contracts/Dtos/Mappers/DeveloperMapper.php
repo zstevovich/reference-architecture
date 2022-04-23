@@ -3,7 +3,6 @@
 namespace Architecture\Api\Contracts\Dtos\Mappers;
 
 use Architecture\Api\Contracts\Dtos\CommonDtos\DeveloperDto;
-use Architecture\Api\Contracts\Dtos\OutputDtos\NewDeveloperResponseDto;
 use Architecture\Domain\Entities\Developer;
 
 class DeveloperMapper
@@ -17,13 +16,6 @@ class DeveloperMapper
     {
         return new DeveloperDto(
             $developer->getId(), $developer->getName(), $developer->getLastName(),$developer->getGraduate()
-        );
-    }
-
-    public static function toDeveloperResponse(Developer $developer, ?string $error, string $message = "Developer has been created!") : NewDeveloperResponseDto
-    {
-        return new NewDeveloperResponseDto(
-            $developer->getId()->toString(),$developer->getName(),$developer->getLastName(),$developer->getGraduate(), $error, $message
         );
     }
 

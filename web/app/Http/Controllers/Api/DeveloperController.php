@@ -154,4 +154,31 @@ class DeveloperController extends Controller
     {
         return response()->json($this->developerService->getAll());
     }
+    /**
+     * @OA\Get(
+     *      path="/api/developer/find/{name}",
+     *      operationId="findDeveloperId",
+     *      tags={"Developer"},
+     *      summary="Get Developers",
+     *      description="Returns developers data",
+     *      @OA\Parameter(
+     *          name="name",
+     *          description="Developer name",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *
+     *       ),
+     * )
+     */
+    public function findByName(string $name): JsonResponse
+    {
+        return response()->json($this->developerService->findByName($name));
+    }
 }

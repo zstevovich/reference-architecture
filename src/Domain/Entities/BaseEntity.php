@@ -16,7 +16,7 @@ abstract class BaseEntity
 
     public function __construct(?string $id)
     {
-        $this->id = UuidFromString($id);
+        $this->id = uuid_from_string($id);
     }
 
 

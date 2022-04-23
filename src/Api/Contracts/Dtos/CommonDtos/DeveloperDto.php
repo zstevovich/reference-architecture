@@ -17,6 +17,6 @@ class DeveloperDto
         $this->name = $name;
         $this->lastName = $lastName;
         $this->graduate = $graduate;
-        $this->id = $id instanceof LazyUuidFromString ? $id->toString() : $id;
+        $this->id = uuid_to_string($id);
     }
 }

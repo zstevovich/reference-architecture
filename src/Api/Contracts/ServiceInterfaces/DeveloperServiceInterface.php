@@ -12,4 +12,5 @@ interface DeveloperServiceInterface
     public function getDeveloper(string $developerId) : DeveloperResponseDto;
     public function deleteDeveloper(string $developerId): bool;
     public function getAll(): DeveloperResponseDto;
+    public function findByName(string $name): DeveloperResponseDto;
 }

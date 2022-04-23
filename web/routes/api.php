@@ -23,4 +23,5 @@ Route::prefix('developer')->group(function () {
     Route::get('get/{developerId}', [App\Http\Controllers\Api\DeveloperController::class, 'getDeveloper'])->name('developer.get');
     Route::get('all', [App\Http\Controllers\Api\DeveloperController::class, 'getAll'])->name('developer.all');
     Route::delete('delete/{developerId}', [App\Http\Controllers\Api\DeveloperController::class, 'deleteDeveloper'])->name('developer.delete');
+    Route::get('find/{name}', [App\Http\Controllers\Api\DeveloperController::class, 'findByName'])->name('developer.find');
 });

@@ -58,7 +58,7 @@ class DeveloperService implements DeveloperServiceInterface
     {
         try {
             /** @var Developer $developer */
-            $id = UuidFromString($developerId);
+            $id = uuid_from_string($developerId);
             $developer = $this->unitOfWork->developerRepository()->getById($id);
             return new DeveloperResponseDto(DeveloperMapper::toDto($developer));
         }catch (Exception $e){
@@ -72,7 +72,7 @@ class DeveloperService implements DeveloperServiceInterface
     {
         /** @var Developer $developer */
         try {
-            $id = UuidFromString($developerId);
+            $id = uuid_from_string($developerId);
             $developer = $this->unitOfWork->developerRepository()->getById($id);
             $this->unitOfWork->developerRepository()->delete($developer);
             $this->unitOfWork->saveChanges();
@@ -91,4 +91,12 @@ class DeveloperService implements DeveloperServiceInterface
         return $response;
     }
 
+    public function findByName(string $name): DeveloperResponseDto
+    {
+        $developers = DeveloperMapper::toDeveloperDtoStream($this->unitOfWork->developerRepository()->findByName($name));
+        if (empty($developers)) $this->error = "Not found any developer in the system!";
+        $response = new DeveloperResponseDto(null,$this->error);
+        $response->setDevelopers($developers);
+        return $response;
+    }
 }
